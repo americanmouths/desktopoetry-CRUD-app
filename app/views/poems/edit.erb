@@ -18,3 +18,7 @@
   <br><br>
   <input type="submit" value="Update Poem">
 </form>
+<form method="post" action="/poems/<%= @poem.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" id="submit" value="Delete Poem">
+</form>
