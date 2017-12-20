@@ -1,0 +1,19 @@
+<center><h1><%= @category.name %></h1>
+<h2>Poems</h2>
+<ul>
+  <% @category.poems.each do |poem| %>
+    <li><a href="/poems/<%= poem.id %>"><%= poem.title %></a></li>
+  <% end %>
+</ul>
+<br><br>
+
+<a href="/categories/<%= @category.id %>/edit">Edit This Category</a>
+<br><br>
+<label>Delete This Category</label>
+  <form method="post" action="/categories/<%=@category.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" id="submit" value="Delete Category">
+</form>
+<br><Br>
+<a href="/logout">Log Out</a>
+</center>
