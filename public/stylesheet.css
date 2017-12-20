@@ -1,0 +1,22 @@
+h1 {
+   text-align: center;
+   color: white;
+   font-family: 'Playfair Display', serif;
+   text-decoration: underline;
+}
+
+body {
+  background-color: #558e8a;
+  font-family: 'Raleway', sans-serif;
+  color: #d9e0df;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
