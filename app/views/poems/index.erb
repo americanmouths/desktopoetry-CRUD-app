@@ -1,1 +1,13 @@
-<h1>Here are your poems:</h1>
+<h1>Welcome <%= current_user.username.capitalize %>! </h1>
+<h2>Here Are Your Poems: </h2>
+
+<ul>
+<% @poems.each do |poem| %>
+  <li><%= poem.title %></li>
+  <p><%= poem.content %></p>
+  <p><%= poem.category %></p>
+  <br>
+<% end %>
+</ul>
+
+<a href="/logout">Log Out</a>
