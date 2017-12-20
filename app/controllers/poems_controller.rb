@@ -58,5 +58,15 @@ class PoemController < ApplicationController
      redirect to "/poems/#{@poem.id}"
  end
 
+ delete '/poems/:id/delete' do
+   @poem = Poem.find(params[:id])
+   if logged_in? && @poem.user_id == current_user.id
+     @poem.destroy
+     redirect to "/poems"
+   else
+     redirect "/login"
+   end
+ end
+
 
 end
