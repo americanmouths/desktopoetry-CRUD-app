@@ -40,4 +40,14 @@ end
     end
   end
 
+  get '/logout' do
+   if logged_in?
+     flash[:message]= "You have been successfully logged out"
+     session.clear
+     redirect to "/login"
+   else
+     redirect to "/login"
+   end
+ end
+
 end
