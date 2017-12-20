@@ -19,7 +19,13 @@ class CategoryController < ApplicationController
       redirect to "/categories/new"
     end
     @category = Category.create(params)
-    @category.poems = Poem.find_or_create_by(params["category"]["poems_id"])
     redirect to "/categories/#{@category.id}"
     end
+
+  get '/categories/:id' do
+    redirect?
+    @category = Category.find(params[:id])
+    erb :'categories/show'
+  end
+
 end
