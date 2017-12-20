@@ -1,0 +1,20 @@
+<center><h1>Edit "<%= @poem.title %>"</h1>
+<p><%= @poem.content %></p></center>
+
+<form action="/poems/<%= @poem.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <h4>New Title:</h4>
+  <input type="text" name="title">
+
+  <h4>New Content:</h4>
+  <textarea name="content" style="width:250px;height:150px;"></textarea>
+
+  <h4>New Date:</h4>
+  <input type="text" name="date">
+
+  <h4>New Category:</h4>
+  <input type="text" name="name">
+  <br><br>
+  <input type="submit" value="Update Poem">
+</form>
