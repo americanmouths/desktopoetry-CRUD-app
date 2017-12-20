@@ -1,0 +1,16 @@
+<center><h1>Edit <%= @category.name %></h1></center>
+
+<form action="/categories/<%= @category.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <h4>New Category Name:</h4>
+  <input type="text" name="name">
+
+  <h4>Select a Poem to Assign to This Category</h4>
+  <% @poems.each do |poem| %>
+    <input type="checkbox" name="category[poems_id][]" value="<%= poem.name %>" <%= 'checked' if @categories.poems.include?(poem) %>><%=poem.name%>
+  <% end %>
+  <br><br>
+  <input type="submit" value="Update Category">
+
+</form>
