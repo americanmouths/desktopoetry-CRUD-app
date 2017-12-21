@@ -50,3 +50,8 @@ ul {
   color: #604646;
   text-align: center;
 }
+
+#flash {
+  background-color: red;
+  color: white;
+}
