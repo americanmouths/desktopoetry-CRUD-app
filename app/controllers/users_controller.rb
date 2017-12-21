@@ -9,7 +9,7 @@ class UserController < ApplicationController
 end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == "" || params[:email] == ""
+    if !User.valid_params?(params)
       flash[:message] = "Fields cannot be empty"
       redirect to "/signup"
     else
