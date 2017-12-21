@@ -4,13 +4,17 @@
   <input type="hidden" name="_method" value="patch">
 
   <h4>New Category Name:</h4>
-  <input type="text" name="name">
+  <input type="text" name="category[name]">
 
   <h4>Select a Poem to Assign to This Category</h4>
-  <% @poems.each do |poem| %>
-    <input type="checkbox" name="category[poems_id][]" value="<%= poem.name %>" <%= 'checked' if @categories.poems.include?(poem) %>><%=poem.name%>
-  <% end %>
+    <% if !@category.poems.empty? %>
+      <% @category.poems.each do |poem| %>
+        <input type="checkbox" name="category[poems][][title]" value="<%= poem.id %>" <%= 'checked' if @category.poems.include?(poem) %>>
+        <%=poem.title%>
+      <% end %>
+    <% else %>
+      <%= "Sorry, looks like you have no poems to display" %>
+    <% end %>
   <br><br>
   <input type="submit" value="Update Category">
-
 </form>
