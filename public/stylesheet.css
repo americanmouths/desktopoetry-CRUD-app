@@ -1,27 +1,23 @@
 h1 {
    text-align: center;
    color: white;
-   font-family: 'Playfair Display', serif;
-   font-size: 2em;
+   font-size: 4em;
    text-decoration: underline;
 }
 
-.main_title {
-  font-size: 3.5em;
+h1 #main_title {
+  font-size: 5.5em;
   text-decoration: underline;
-  font-family: 'Playfair Display', serif;
   color: white;
   text-align: center;
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5em;
+  font-size: 1.75em;
   color: white;
 }
 
 h3 {
-  font-family: 'Playfair Display', serif;
   font-size: 1.5em;
   color: white;
 }
@@ -48,7 +44,7 @@ ul {
   list-style-type: none;
 }
 
-.main-links a{
+.main-links a {
   font-size: 2em;
   display: inline-block;
   color: #604646;
