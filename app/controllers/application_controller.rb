@@ -1,4 +1,4 @@
-require 'rack/flash'
+require 'rack-flash'
 class ApplicationController < Sinatra::Base
   use Rack::Flash
 
@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect?
       if !logged_in?
+        flash[:error] = "Please log in"
         redirect to "/login"
       end
     end
