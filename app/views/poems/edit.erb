@@ -14,18 +14,9 @@
   <input type="text" name="poems[date]">
 
   <h4>New Category:</h4>
-  <input type="text" name="poems[category][][name]">
+  <input type="text" name="poems[category]">
   <br><br>
 
-  <h4>Or Select A Category</h4>
-    <% if !Category.all.empty? %>
-      <% Category.all.each do |category| %>
-        <input type="checkbox" name="poems[category][][name]" value="<%= category.id %>" <%= 'checked' if Category.all.include?(category) %>>
-        <%=category.name%>
-        <% end %>
-    <% else %>
-      <%= "Sorry, you have no categories to display" %>
-  <% end %>
   <br><br>
   <input type="submit" value="Update Poem">
 </form>
