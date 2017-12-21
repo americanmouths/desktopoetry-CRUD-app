@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <center><%= flash[:message] %></center>
+<% end %>
 <h1>Submit A New Poem</h1>
 <form method="POST" action="/poems">
   <h4>Title</h4>
@@ -12,10 +15,5 @@
   <h4>Category</h4>
   <input type="text" name="poems[category]">
   <br><br>
-
-  <% if flash.has?(:error) %>
-   <%= flash[:error] %>
-  <% end %>
-
   <input type="submit" value="Submit Poem">
 </form>
