@@ -48,7 +48,7 @@ patch '/categories/:id' do
   @category = Category.find(params[:id])
 
   unless Category.valid_params?(params)
-    flash[:error] = "Please do not leave any fields empty"
+    flash[:message] = "Please do not leave any fields empty"
     redirect to "/categories/new"
   end
 
