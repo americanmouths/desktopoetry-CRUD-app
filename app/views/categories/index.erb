@@ -4,8 +4,8 @@
 <h1>Welcome <%= current_user.username.capitalize %>! </h1>
 <h2>Categories</h2>
 
-<% if !@categories.empty? %>
-  <% @categories.each do |category| %>
+<% if !current_user.categories.empty? %>
+  <% current_user.categories.each do |category| %>
     <ul>
     <li><h3><a href="/categories/<%=category.id%>"><%= category.name %></a></h3><br /></li>
     <a href="/categories/<%=category.id%>/edit">Edit</a>
@@ -16,5 +16,5 @@
     <h4><%= "You currently have no categories to display" %></h4>
 <% end %>
 <br>
-<a href="/categories/new">Create A New Category</a>
+<a href="/categories/new">Create A New Category</a><br><br>
 <a href="/logout">Log Out</a>
