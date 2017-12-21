@@ -1,15 +1,13 @@
 <% if flash.has?(:message) %>
- <%= flash[:message] %>
+ <center><%= flash[:message] %></center>
 <% end %>
 <h1>Welcome <%= current_user.username.capitalize %>! </h1>
 <center>
-<% if !@user.poems.empty? %>
+<% if !current_user.poems.empty? %>
   <h2>Here are your poems: </h2>
   <ul>
-  <% @user.poems.each do |poem| %>
-    <li><%= poem.title %></li>
-    <p><%= poem.content %></p>
-    <p><%= poem.category %></p>
+  <% current_user.poems.each do |poem| %>
+    <li><a href="/poems/<%=poem.id%>"><%= poem.title %></a></li>
     <br>
   <% end %>
 <% else %>
