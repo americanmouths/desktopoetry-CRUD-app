@@ -2,10 +2,11 @@
  <%= flash[:message] %>
 <% end %>
 <h1>Welcome <%= current_user.username.capitalize %>! </h1>
-<% if !@poems.empty? %>
+<center>
+<% if !@user.poems.empty? %>
   <h2>Here are your poems: </h2>
   <ul>
-  <% @poems.each do |poem| %>
+  <% @user.poems.each do |poem| %>
     <li><%= poem.title %></li>
     <p><%= poem.content %></p>
     <p><%= poem.category %></p>
@@ -15,5 +16,6 @@
     <%= "Looks like you have no poems to display" %>
 <% end %>
 </ul>
-<a href="/poems/new">Create A New Poem</a>
+<br><br><br><br>
+<a href="/poems/new">Create A New Poem</a><br><br>
 <a href="/logout">Log Out</a>
