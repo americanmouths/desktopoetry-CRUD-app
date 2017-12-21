@@ -71,6 +71,7 @@ delete '/categories/:id/delete' do
   @category = Category.find(params[:id])
   if logged_in? && @category.user_id == current_user.id
     @category.destroy
+    flash[:message] = "The category has been deleted"
     redirect to "/categories"
   else
     redirect "/login"
