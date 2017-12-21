@@ -1,7 +1,12 @@
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <center><h1> Welcome <%= @user.username.capitalize %>! </h1>
-<% if !@user.poems.empty? %>
+<% if !current_user.poems.empty? %>
   <h2>Here are your poems:</h2>
-  <% @user.poems.each do |poem| %>
+  <% current_user.poems.each do |poem| %>
     <ul>
       <li><a href="/poems/<%=poem.id%>"><%= poem.title %></a></li>
     </ul>
@@ -10,9 +15,9 @@
   <%= "Looks like you don't have any poems yet" %>
 <% end %>
 
-<% if !@user.categories.empty? %>
+<% if !current_user.categories.empty? %>
   <h2>Here are your categories:</h2>
-  <% @user.categories.each do |category| %>
+  <% current_user.categories.each do |category| %>
     <ul>
       <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
     </ul>
