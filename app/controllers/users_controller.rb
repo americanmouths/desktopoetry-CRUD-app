@@ -8,6 +8,11 @@ class UserController < ApplicationController
   end
 end
 
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :'/users/show'
+  end
+
   post '/signup' do
     if !User.valid_params?(params)
       flash[:message] = "Fields cannot be empty"
