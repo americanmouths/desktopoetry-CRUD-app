@@ -1,19 +1,27 @@
+
+<% if flash.has?(:message) %>
+ <%= flash[:message] %>
+<% end %>
 <center><h1><%= @category.name %></h1>
-<h2>Poems</h2>
+<h2>Poems in This Category</h2>
 <ul>
-  <% @category.poems.each do |poem| %>
-    <li><a href="/poems/<%= poem.id %>"><%= poem.title %></a></li>
+  <% if !@category.poems.empty? %>
+    <% @category.poems.each do |poem| %>
+      <li><a href="/poems/<%= poem.id %>"><%= poem.title %></a></li>
+    <% end %>
+  <% else %>
+    <%= "Sorry, you have no poems to display" %>
   <% end %>
 </ul>
 <br><br>
+</center>
 
 <a href="/categories/<%= @category.id %>/edit">Edit This Category</a>
 <br><br>
-<label>Delete This Category</label>
   <form method="post" action="/categories/<%=@category.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Category">
 </form>
-<br><Br>
+<br>
 <a href="/logout">Log Out</a>
 </center>
