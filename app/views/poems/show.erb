@@ -1,7 +1,9 @@
-<center><h1><%= @poem.title %></h1>
+<div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
+</div>
+<center><h1><%= @poem.title %></h1>
 <p><%= @poem.content %></p>
 <h4>Written: </h4>
 <p><%= @poem.date %></p>
@@ -9,12 +11,12 @@
 <h4>Category:</h4>
 <p><%= @poem.category.name %></p>
 <br><br>
-</center>
-<a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a>
+<a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a><br>
+<a href="/categories/<%=@poem.category.id%>/edit">Edit This Category</a><br>
+<a href="/logout">Log Out</a>
 <br><br>
 <form method="post" action="/poems/<%= @poem.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Poem">
 </form>
-<br><Br>
-<a href="/logout">Log Out</a>
+</center>

@@ -1,3 +1,8 @@
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <center><h1>Edit <%= @category.name %></h1></center>
 
 <form action="/categories/<%= @category.id %>" method="post">

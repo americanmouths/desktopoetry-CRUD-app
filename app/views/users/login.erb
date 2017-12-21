@@ -1,7 +1,9 @@
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <h1>Login to Desktopoetry</h1>
-<% if flash.has?(:error) %>
- <%= flash[:error] %>
-<% end %>
 <form method="post" action="/login">
   <label>Username:</label>
   <br>

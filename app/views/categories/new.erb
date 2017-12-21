@@ -1,7 +1,9 @@
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <h1>Create a New Category</h1>
-<% if flash.has?(:error) %>
- <%= flash[:error] %>
-<% end %>
 <form method="POST" action="/categories">
   <h4>Name</h4>
   <input type="text" name="category[name]">

@@ -1,6 +1,8 @@
-<% if flash.has?(:message) %>
-  <center><%= flash[:message] %></center>
-<% end %>
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+    <center><%= flash[:message] %></center>
+  <% end %>
+</div>
 <h1>Submit A New Poem</h1>
 <form method="POST" action="/poems">
   <h4>Title</h4>

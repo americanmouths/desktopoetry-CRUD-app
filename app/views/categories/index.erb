@@ -1,6 +1,8 @@
-<% if flash.has?(:message) %>
- <%= flash[:message] %>
-<% end %>
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <h1>Welcome <%= current_user.username.capitalize %>! </h1>
 <h2>Categories</h2>
 

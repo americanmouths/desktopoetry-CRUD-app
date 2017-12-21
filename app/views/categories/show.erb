@@ -1,7 +1,9 @@
 
-<% if flash.has?(:message) %>
- <%= flash[:message] %>
-<% end %>
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <center><h1><%= @category.name %></h1>
 <h2>Poems in This Category</h2>
   <% if !current_user.poems.empty? %>
