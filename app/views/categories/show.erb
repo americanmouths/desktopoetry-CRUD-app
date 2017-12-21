@@ -4,17 +4,15 @@
 <% end %>
 <center><h1><%= @category.name %></h1>
 <h2>Poems in This Category</h2>
-<ul>
-  <% if !@category.poems.empty? %>
-    <% @category.poems.each do |poem| %>
-      <li><a href="/poems/<%= poem.id %>"><%= poem.title %></a></li>
+  <% if !current_user.poems.empty? %>
+    <% current_user.poems.each.with_index do |poem, index| %>
+      <a href="/poems/<%= poem.id %>"><%= index + 1 %>. <%= poem.title %></a>
     <% end %>
   <% else %>
     <%= "Sorry, you have no poems to display" %>
   <% end %>
-</ul>
 <br><br>
-</center>
+
 
 <a href="/categories/<%= @category.id %>/edit">Edit This Category</a>
 <br><br>
