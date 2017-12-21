@@ -1,4 +1,4 @@
-<center><h2><%= @poem.title %></h2>
+<center><h1><%= @poem.title %></h1>
 <p><%= @poem.content %></p>
 <h4>Written: </h4>
 <p><%= @poem.date %></p>
@@ -9,9 +9,13 @@
 </center>
 <a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a>
 <br><br>
-  <form method="post" action="/poems/<%= @poem.id %>/delete">
+<form method="post" action="/poems/<%= @poem.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Poem">
 </form>
 <br><Br>
 <a href="/logout">Log Out</a>
+
+<% if flash.has?(:message) %>
+ <%= flash[:message] %>
+<% end %>
