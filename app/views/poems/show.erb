@@ -1,4 +1,7 @@
 <center><h1><%= @poem.title %></h1>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
 <p><%= @poem.content %></p>
 <h4>Written: </h4>
 <p><%= @poem.date %></p>
@@ -15,7 +18,3 @@
 </form>
 <br><Br>
 <a href="/logout">Log Out</a>
-
-<% if flash.has?(:message) %>
- <%= flash[:message] %>
-<% end %>
