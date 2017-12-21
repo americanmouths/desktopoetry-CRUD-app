@@ -9,23 +9,13 @@
   <h4>Content</h4>
   <textarea name="poems[content]" style="width:250px;height:150px;"></textarea>
 
-  <h4>Select A Category</h4>
-  <% if !Category.all.empty? %>
-    <% Category.all.each do |category| %>
-      <input type="checkbox" name="poems[category][][name]" value="<%= category.id %>" <%= 'checked' if Category.all.include?(category) %>>
-      <%=category.name%>
-      <% end %>
-  <% else %>
-    <%= "Sorry, you have no categories to display" %>
-  <% end %>
-
-  <h4>Create A New Category</h4>
-  <input type="text" name="poems[category][][name]">
+  <h4>Category</h4>
+  <input type="text" name="poems[category]">
   <br><br>
 
   <% if flash.has?(:error) %>
    <%= flash[:error] %>
   <% end %>
-  
+
   <input type="submit" value="Submit Poem">
 </form>
