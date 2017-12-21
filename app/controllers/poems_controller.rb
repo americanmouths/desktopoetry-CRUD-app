@@ -17,8 +17,8 @@ class PoemController < ApplicationController
     redirect?
 
     unless Poem.valid_params?(params)
-      flash[:error] = "Please do not leave any fields empty"
-      redirect to "/poems/#{@poem.id}"
+      flash[:message] = "Please do not leave any fields empty"
+      redirect to "/poems/new"
     end
 
     @poem = Poem.create(title: params[:poems][:title], date: params[:poems][:date], content: params[:poems][:content])
@@ -49,8 +49,8 @@ class PoemController < ApplicationController
    @poem = Poem.find(params[:id])
 
    unless Poem.valid_params?(params)
-     flash[:error] = "Please do not leave any fields empty"
-     redirect to "/poems/new"
+     flash[:message] = "Please do not leave any fields empty"
+     redirect to "/poems/#{@poem.id}"
    end
 
    if logged_in? && @poem.user_id == current_user.id
