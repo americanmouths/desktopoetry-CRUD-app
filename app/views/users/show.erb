@@ -1,0 +1,25 @@
+<h1> Here are your poems, <%= @user.username %> </h1>
+<% if !@user.poems.empty? %>
+  <% @user.poems.each do |poem| %>
+    <ul>
+      <li><a href="/poems/<%=poem.id%>"><%= poem.title %></a></li>
+    </ul>
+  <% end %>
+<% else %>
+  <%= "Looks like you don't have any poems yet" %>
+<% end %>
+
+<h1> Here are your categories, <%= @user.categories %> </h1>
+<% if !@user.categories.empty? %>
+  <% @user.categories.each do |category| %>
+    <ul>
+      <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
+    </ul>
+  <% end %>
+<% else %>
+<%= "Looks like you don't have any categories yet" %>
+<% end %>
+
+
+<a href="/poems/new">Create A New Poem</a>
+<a href="/logout">Log Out</a>
