@@ -2,9 +2,8 @@ class PoemController < ApplicationController
 
   get '/poems' do
     redirect?
-      @user = current_user
-      @poems = Poem.all
-      erb :"/poems/index"
+    @user = current_user
+    erb :"/poems/index"
   end
 
   get '/poems/new' do
