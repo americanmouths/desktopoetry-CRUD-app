@@ -5,19 +5,33 @@
   <input type="hidden" name="_method" value="patch">
 
   <h4>New Title:</h4>
-  <input type="text" name="title">
+  <input type="text" name="poems[title]">
 
   <h4>New Content:</h4>
-  <textarea name="content" style="width:250px;height:150px;"></textarea>
+  <textarea name="poems[content]" style="width:250px;height:150px;"></textarea>
 
   <h4>New Date:</h4>
-  <input type="text" name="date">
+  <input type="text" name="poems[date]">
 
   <h4>New Category:</h4>
-  <input type="text" name="name">
+  <input type="text" name="poems[category][][name]">
+  <br><br>
+
+  <h4>Or Select A Category</h4>
+    <% if !Category.all.empty? %>
+      <% Category.all.each do |category| %>
+        <input type="checkbox" name="poems[category][][name]" value="<%= category.id %>" <%= 'checked' if Category.all.include?(category) %>>
+        <%=category.name%>
+        <% end %>
+    <% else %>
+      <%= "Sorry, you have no categories to display" %>
+  <% end %>
   <br><br>
   <input type="submit" value="Update Poem">
 </form>
+<% if flash.has?(:message) %>
+ <%= flash[:message] %>
+<% end %>
 <form method="post" action="/poems/<%= @poem.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Poem">
