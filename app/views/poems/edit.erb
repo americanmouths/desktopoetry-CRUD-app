@@ -4,7 +4,11 @@
   <% end %>
 </div>
 <center><h1>Edit "<%= @poem.title %>"</h1>
-<p><%= @poem.content %></p></center>
+<% new_poem = @poem.content.split("\r\n") %>
+  <% new_poem.each do |poem| %>
+    <p><%= poem %></p>
+  <% end %>
+<br>
 
 <form action="/poems/<%= @poem.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
