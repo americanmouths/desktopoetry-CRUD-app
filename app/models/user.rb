@@ -4,9 +4,13 @@ class User < ActiveRecord::Base
   has_many :poems
   has_many :categories
 
-  def self.valid_params?(params)
+  def self.valid_params?(params) #returns true if params are not empty
    return !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
  end
+
+  def self.valid_username?(params) #return true if params does not equal user
+    return !params[:username] == User.find_by(username: params[:username])
+  end
 
   def slug
     self.username.downcase.gsub(" ", "-")
