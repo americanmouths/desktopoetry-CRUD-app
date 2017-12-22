@@ -6,29 +6,29 @@
 <center><h1> Welcome <%= @user.username.capitalize %>! </h1>
 <% if !current_user.poems.empty? %>
   <h2>Here are your poems:</h2>
-  <% current_user.poems.each do |poem| %>
+  <% current_user.poems.each_with_index do |poem, index| %>
     <ul>
-      <li><a href="/poems/<%=poem.id%>"><%= poem.title %></a></li>
+      <li><a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a></li>
     </ul>
   <% end %>
 <% else %>
   <h2 class="user_show_heading"><%= "Looks like you don't have any poems yet" %></h1>
 <% end %>
 <br>
-<a href="/poems/new">Create A New Poem</a><br>
+<a href="/poems/new" class="new">Create A New Poem</a><br>
 
 <% if !current_user.categories.empty? %>
   <h2>Here are your categories:</h2>
-  <% current_user.categories.each do |category| %>
+  <% current_user.categories.each_with_index do |category, index| %>
     <ul>
-      <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
+      <li><a href="/categories/<%=category.id%>"><%= index + 1 %>. <%= category.name %></a></li>
     </ul>
   <% end %>
 <% else %>
 <h2 class="user_show_heading"><%= "Looks like you don't have any categories yet" %></h2>
 <% end %>
 <br>
-<a href="/categories/new">Create A New Category</a><br>
+<a href="/categories/new" class="new">Create A New Category</a><br>
 <br><br>
 <a href="/logout">Log Out</a>
 </center>
