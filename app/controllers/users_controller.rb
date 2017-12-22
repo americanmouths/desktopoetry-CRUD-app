@@ -10,12 +10,13 @@ end
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
+    @user = current_user
     erb :'/users/show'
   end
 
   post '/signup' do
-    if !User.valid_params?(params)
-      flash[:message] = "Fields cannot be empty"
+    if !User.valid_params?(params) || !User.valid_username?(username: params[:username])
+      flash[:message] = "Please enter a valid username and password"
       redirect to "/signup"
     else
       @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
