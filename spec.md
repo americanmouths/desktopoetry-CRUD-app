@@ -21,7 +21,8 @@ Category has routes for creating, reading, updating and destroying
 Validates that username is not already taken, that user exists in database and password is authenticated
 - [X] Display validation failures to user with error message (example form URL e.g. /posts/new)
 Uses rack::flash messages when user is not logged in, when user does not enter valid params, when password is incorrect
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+README.md contains all of this information
 
 Confirm
 - [X] You have a large number of small Git commits
