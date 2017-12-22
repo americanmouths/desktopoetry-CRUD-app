@@ -12,6 +12,10 @@ h1 #main_title {
   text-align: center;
 }
 
+p.poem {
+  color: black;
+}
+
 h2 {
   font-size: 1.75em;
   color: white;
