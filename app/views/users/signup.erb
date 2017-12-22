@@ -1,3 +1,8 @@
+<div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
 <h1>Welcome to Desktopoetry</h1>
 <center>
 <h3>To sign up, enter username + password below</h3>
