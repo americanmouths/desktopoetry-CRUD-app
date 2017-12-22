@@ -4,7 +4,11 @@
   <% end %>
 </div>
 <center><h1><%= @poem.title %></h1>
-<p><%= @poem.content %></p>
+<% new_poem = @poem.content.split("\r\n") %>
+  <% new_poem.each do |poem| %>
+    <p><%= poem %></p>
+  <% end %>
+<br>
 <h4>Written: </h4>
 <p><%= @poem.date %></p>
 
@@ -13,6 +17,7 @@
 <br><br>
 <a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a><br>
 <a href="/categories/<%=@poem.category.id%>/edit">Edit This Category</a><br>
+<a href="/poems/new">Create A New Poem</a><br>
 <a href="/logout">Log Out</a>
 <br><br>
 <form method="post" action="/poems/<%= @poem.id %>/delete">
