@@ -8,16 +8,14 @@
 
 <% if !current_user.categories.empty? %>
   <% current_user.categories.each do |category| %>
-    <ul>
-    <li><h3><a href="/categories/<%=category.id%>"><%= category.name %></a></h3><br /></li>
+    <h3><a href="/categories/<%=category.id%>"><%= category.name %></a></h3>
     <a href="/categories/<%=category.id%>/edit">Edit</a>
     <br>
-    </ul>
     <% end %>
   <% else %>
     <h4><%= "You currently have no categories to display" %></h4>
 <% end %>
-<br>
+<br><br><br><br>
 <a href="/categories/new">Create A New Category</a><br>
 <a href="/poems/new">Create A New Poem</a><br>
 <a href="/users/:slug">Home</a><br>
