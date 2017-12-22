@@ -17,6 +17,11 @@ h2 {
   color: white;
 }
 
+h2 #user_show_heading {
+  text-decoration: underline;
+  font-size: 2.00em;
+}
+
 h3 {
   font-size: 1.5em;
   color: white;
