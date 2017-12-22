@@ -12,9 +12,10 @@
     </ul>
   <% end %>
 <% else %>
-  <%= "Looks like you don't have any poems yet" %>
+  <h2 class="user_show_heading"><%= "Looks like you don't have any poems yet" %></h1>
 <% end %>
-<br><br>
+<br>
+<a href="/poems/new">Create A New Poem</a><br>
 
 <% if !current_user.categories.empty? %>
   <h2>Here are your categories:</h2>
@@ -24,12 +25,10 @@
     </ul>
   <% end %>
 <% else %>
-<%= "Looks like you don't have any categories yet" %>
+<h2 class="user_show_heading"><%= "Looks like you don't have any categories yet" %></h2>
 <% end %>
-<br><br><br>
-
-
-<a href="/poems/new">Create A New Poem</a><br>
+<br>
 <a href="/categories/new">Create A New Category</a><br>
+<br><br>
 <a href="/logout">Log Out</a>
 </center>
