@@ -6,7 +6,7 @@ To use this app, just clone, run rake db:migrate and then run shotgun.
 Navigate to the host displayed by shotgun.
 
 # Contributors Guide
-desktopoetry-CRUD-app/CONTRIBUTING.md
+<a href="desktopoetry-CRUD-app/CONTRIBUTING.md">Contributors Guide</a>
 
-#License
-desktopoetry-CRUD-app/LICENSE
+# License
+<a href="desktopoetry-CRUD-app/LICENSE">License Information</a>
