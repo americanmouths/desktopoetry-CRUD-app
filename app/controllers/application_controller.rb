@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect?
       if !logged_in?
-        flash[:error] = "Please log in"
+        flash[:message] = "Please log in"
         redirect to "/login"
       end
     end
