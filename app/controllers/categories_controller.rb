@@ -17,10 +17,12 @@ class CategoryController < ApplicationController
       redirect to "/categories/new"
     end
     @category = Category.create(name: params[:category][:name])
+    if !params[:category][:poems] == nil
     params[:category][:poems].each do |poem_data|
       poem = Poem.find_or_create_by(poem_data)
       poem.category = @category
       poem.save
+    end
     end
     @category.user_id = current_user.id
     @category.save
