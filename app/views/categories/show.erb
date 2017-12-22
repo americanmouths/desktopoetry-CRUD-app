@@ -6,9 +6,9 @@
 </div>
 <center><h1><%= @category.name %></h1>
 <h2>Poems in This Category</h2>
-  <% if !current_user.poems.empty? %>
-    <% current_user.poems.each.with_index do |poem, index| %>
-      <a href="/poems/<%= poem.id %>"><%= index + 1 %>. <%= poem.title %></a>
+  <% if !@category.poems.empty? %>
+    <% @category.poems.each.with_index do |poem, index| %>
+      <p><a href="/poems/<%= poem.id %>"><%= index + 1 %>. <%= poem.title %></a></p>
     <% end %>
   <% else %>
     <%= "Sorry, you have no poems to display" %>
@@ -23,5 +23,6 @@
   <input type="submit" id="submit" value="Delete Category">
 </form>
 <br>
+<a href="/categories/new">Create A New Category</a>
 <a href="/logout">Log Out</a>
 </center>
