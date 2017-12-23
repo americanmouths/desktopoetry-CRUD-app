@@ -1,20 +1,22 @@
+<center>
 <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
 </div>
-<h1>Welcome <%= current_user.username.capitalize %>! </h1>
-<center><h2>Categories</h2>
 
-<% if !current_user.categories.empty? %>
-  <% current_user.categories.each do |category| %>
-    <h3><a href="/categories/<%=category.id%>"><%= category.name %></a></h3>
-    <a href="/categories/<%=category.id%>/edit">Edit</a>
-    <br>
-    <% end %>
-  <% else %>
-    <h4><%= "You currently have no categories to display" %></h4>
-<% end %>
+<h1>Welcome <%= current_user.username.capitalize %>! </h1>
+
+<h2>Categories</h2>
+  <% if !current_user.categories.empty? %>
+    <% current_user.categories.each do |category| %>
+      <h3><a href="/categories/<%=category.id%>"><%= category.name %></a></h3>
+      <a href="/categories/<%=category.id%>/edit">Edit</a>
+      <br>
+      <% end %>
+    <% else %>
+      <h4><%= "You currently have no categories to display" %></h4>
+  <% end %>
 <br><br><br><br>
 <a href="/categories/new">Create A New Category</a><br>
 <a href="/poems/new">Create A New Poem</a><br>

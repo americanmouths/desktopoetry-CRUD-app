@@ -1,11 +1,14 @@
-<div id='flash' class='notice'>
+<center>
+  <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
 </div>
+
 <h1>Welcome to Desktopoetry</h1>
-<center>
+
 <h3>To sign up, enter username + password + email below</h3>
+
 <form action="/signup" method="POST">
   <label>Username</label>
   <br>
@@ -22,5 +25,6 @@
   <input type="submit" value="Sign Up">
 </form>
 <br><br>
+
 <a href="/login">Log In To Existing Desktopoetry Account</a>
 </center>

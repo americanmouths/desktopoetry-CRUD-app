@@ -10,7 +10,7 @@
 <% if !current_user.poems.empty? %>
   <h2>Here are your poems:</h2>
     <% current_user.poems.each_with_index do |poem, index| %>
-        <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a>
+        <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a><br>
     <% end %>
 <% else %>
   <h2 class="user_show_heading"><%= "Looks like you don't have any poems yet" %></h1>
@@ -23,7 +23,7 @@
 <% if !current_user.categories.empty? %>
   <h2>Here are your categories:</h2>
     <% current_user.categories.each_with_index do |category, index| %>
-        <a href="/categories/<%=category.id%>"><%= index + 1 %>. <%= category.name %></a>
+        <a href="/categories/<%=category.id%>"><%= index + 1 %>. <%= category.name %></a><br>
     <% end %>
 <% else %>
   <h2 class="user_show_heading"><%= "Looks like you don't have any categories yet" %></h2>

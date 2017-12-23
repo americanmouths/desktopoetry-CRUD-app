@@ -1,9 +1,12 @@
+<center>
 <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
 </div>
-<center><h1>Edit "<%= @poem.title %>"</h1>
+
+<h1>Edit "<%= @poem.title %>"</h1>
+
 <% new_poem = @poem.content.split("\r\n") %>
   <% new_poem.each do |poem| %>
     <p><%= poem %></p>
@@ -29,7 +32,9 @@
   <br><br>
   <input type="submit" value="Update Poem">
 </form>
+
 <form method="post" action="/poems/<%= @poem.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Poem">
 </form>
+</center>

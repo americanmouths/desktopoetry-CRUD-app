@@ -1,21 +1,25 @@
+<center>
 <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
-   <center><%= flash[:message] %></center>
+   <%= flash[:message] %>
   <% end %>
 </div>
+
 <h1>Welcome <%= current_user.username.capitalize %>! </h1>
-<center>
+
 <% if !current_user.poems.empty? %>
   <h2>Here are your poems: </h2>
-  <% current_user.poems.each.with_index do |poem, index| %>
-    <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a>
-    <br>
-  <% end %>
+    <% current_user.poems.each.with_index do |poem, index| %>
+      <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a>
+      <br>
+    <% end %>
 <% else %>
     <%= "Looks like you have no poems to display" %>
 <% end %>
 <br><br>
+
 <a href="/poems/new">Create A New Poem</a><br>
 <a href="/categories/new">Create A New Category</a><br>
 <a href="/users/:slug">Home</a><br>
 <a href="/logout">Log Out</a>
+</center>

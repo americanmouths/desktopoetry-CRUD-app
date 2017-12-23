@@ -1,9 +1,11 @@
+<center>
 <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
 </div>
-<center><h1>Edit <%= @category.name %></h1></center>
+
+<h1>Edit <%= @category.name %></h1>
 
 <form action="/categories/<%= @category.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
@@ -23,3 +25,4 @@
   <br><br>
   <input type="submit" value="Update Category">
 </form>
+</center>
