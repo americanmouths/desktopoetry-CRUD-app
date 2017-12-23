@@ -18,11 +18,11 @@ class CategoryController < ApplicationController
     end
     @category = Category.create(name: params[:category][:name])
     if !params[:category][:poems] == nil
-    params[:category][:poems].each do |poem_data|
-      poem = Poem.find_or_create_by(poem_data)
-      poem.category = @category
-      poem.save
-    end
+      params[:category][:poems].each do |poem_data|
+        poem = Poem.find_or_create_by(poem_data)
+        poem.category = @category
+        poem.save
+      end
     end
     @category.user_id = current_user.id
     @category.save
@@ -58,11 +58,11 @@ patch '/categories/:id' do
       @category.update(name: params[:category][:name])
       if !params[:category][:poems] == nil
         params[:category][:poems].each do |poem_data|
-        poem = Poem.find_or_create_by(poem_data)
-        poem.category = @category
-        poem.save
+          poem = Poem.find_or_create_by(poem_data)
+          poem.category = @category
+          poem.save
+        end
       end
-    end
         @category.save
         flash[:message] = "The category has been updated"
         redirect to "/categories/#{@category.id}"
