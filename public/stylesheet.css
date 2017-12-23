@@ -6,7 +6,7 @@ h1 {
 }
 
 h1 #main_title {
-  font-size: 5.5em;
+  font-size: 5.0em;
   text-decoration: underline;
   color: white;
   text-align: center;
@@ -15,7 +15,15 @@ h1 #main_title {
 p {
   color: #533535;
   font-size: 1.05em;
-  line-height: 0.1;
+}
+
+#poem {
+  color: #533535;
+  font-size: 1.05em;
+}
+
+#main_heading {
+  font-size: 24px;
 }
 
 h2 {
@@ -43,7 +51,7 @@ body {
 a {
   text-decoration: none;
   color: #494848;
-  font-size: 1.0em;
+  font-size: 20px;
 }
 
 a:hover {
@@ -55,11 +63,11 @@ ul {
   list-style-type: none;
 }
 
-.main-links a {
-  font-size: 2em;
-  display: inline-block;
-  color: #604646;
+.main_links {
+  font-size: 35px;
+  color: ##cecccc;
   text-align: center;
+  font-weight: bold;
 }
 
 #flash {
