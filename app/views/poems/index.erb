@@ -7,7 +7,6 @@
 <center>
 <% if !current_user.poems.empty? %>
   <h2>Here are your poems: </h2>
-  <ul>
   <% current_user.poems.each.with_index do |poem, index| %>
     <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a>
     <br>
@@ -15,7 +14,6 @@
 <% else %>
     <%= "Looks like you have no poems to display" %>
 <% end %>
-</ul>
 <br><br>
 <a href="/poems/new">Create A New Poem</a><br>
 <a href="/categories/new">Create A New Category</a><br>
