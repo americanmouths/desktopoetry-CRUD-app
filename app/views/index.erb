@@ -1,4 +1,10 @@
 <center>
+  <div id='flash' class='notice'>
+  <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+  <% end %>
+</div>
+
 <h1 id="main_title">Welcome to Desktopoetry</h1>
 <p id="main_heading">A desktop for creating, viewing and editing poetry</p>
 <br><br>
