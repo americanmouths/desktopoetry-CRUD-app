@@ -28,7 +28,7 @@
 
 <a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a><br>
 
-<% if !@poem.category == nil %>
+<% if !@poem.category.nil? %>
   <a href="/categories/<%=@poem.category.id%>/edit">Edit This Category</a><br>
 <% else %>
   <a href="/categories/new">Create A New Category</a><br>
