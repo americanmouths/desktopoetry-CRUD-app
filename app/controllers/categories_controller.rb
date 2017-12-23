@@ -30,8 +30,8 @@ class CategoryController < ApplicationController
   end
 
   get '/categories/:id' do
-    redirect?
     @category = Category.find(params[:id])
+    @poems = @category.poems
     erb :'categories/show'
   end
 
