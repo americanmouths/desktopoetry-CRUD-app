@@ -16,6 +16,11 @@ p.poem {
   color: black;
 }
 
+p {
+  color: #533535;
+  font-size: 1.25em;
+}
+
 h2 {
   font-size: 1.75em;
   color: white;
@@ -61,6 +66,6 @@ ul {
 }
 
 #flash {
-  background-color: red;
+  background-color: #2C2323;
   color: white;
 }
