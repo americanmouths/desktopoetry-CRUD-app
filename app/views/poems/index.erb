@@ -9,7 +9,7 @@
   <h2>Here are your poems: </h2>
   <ul>
   <% current_user.poems.each.with_index do |poem, index| %>
-    <li><a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a></li>
+    <a href="/poems/<%=poem.id%>"><%= index + 1 %>. <%= poem.title %></a>
     <br>
   <% end %>
 <% else %>
