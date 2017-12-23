@@ -27,7 +27,7 @@ class PoemController < ApplicationController
     @poem.category.user_id = current_user.id
     @poem.category.save
     @poem.save
-    binding.pry
+    
     redirect to "/poems/#{@poem.id}"
    end
 
