@@ -2,8 +2,12 @@
 A CRUD web application for writing, reading, editing and deleting poetry.
 
 # Usage
-To use this app, just clone, run rake db:migrate and then run shotgun.
-Navigate to the host displayed by shotgun.
+To use this app:
+- Clone
+- In terminal run bundle install
+- Run rake db:migrate
+- Run shotgun
+- Navigate to the local host displayed by shotgun
 
 # Contributors Guide
 <a href="desktopoetry-CRUD-app/CONTRIBUTING.md">Contributors Guide</a>
