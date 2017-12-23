@@ -6,15 +6,16 @@
 </div>
 <center><h1><%= @category.name %></h1>
 <h2>Poems in This Category</h2>
-  <% if !@category.poems.empty? %>
-    <% @category.poems.each.with_index do |poem, index| %>
-      <p><a href="/poems/<%= poem.id %>"><%= index + 1 %>. <%= poem.title %></a></p>
-    <% end %>
+  <% if !@poems.empty? %>
+      <% @poems.each do |poem| %>
+          <% if poem.user_id == current_user.id %>
+            <p><a href="/poems/<%= poem.id %>"><%= poem.title %></a></p>
+          <% end %>
+      <% end %>
   <% else %>
-    <%= "Sorry, you have no poems to display" %>
+        <%= "Sorry, you have no poems to display" %>
   <% end %>
 <br><br>
-
 
 <a href="/categories/<%= @category.id %>/edit">Edit This Category</a><br>
 <a class="new" href="/categories/new">Create A New Category</a><br>
