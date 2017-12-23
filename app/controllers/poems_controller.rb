@@ -30,7 +30,7 @@ class PoemController < ApplicationController
     redirect to "/poems/#{@poem.id}"
    end
 
-   get '/poems/:id' do
+  get '/poems/:id' do
     redirect?
     @poem = Poem.find(params[:id])
     erb :'poems/show'
@@ -38,13 +38,13 @@ class PoemController < ApplicationController
 
   get '/poems/:id/edit' do
    redirect?
-     @poem = Poem.find(params[:id])
+   @poem = Poem.find(params[:id])
      if @poem.user_id == current_user.id
        erb :'/poems/edit'
      else
        redirect to "/poems"
-   end
- end
+     end
+  end
 
  patch '/poems/:id' do
    redirect?
@@ -59,6 +59,7 @@ class PoemController < ApplicationController
      @poem.update(title: params[:poems][:title], date: params[:poems][:date], content: params[:poems][:content])
      @poem.category = Category.find_or_create_by(name: params[:poems][:category])
      @poem.save
+
      flash[:message] = "Succesfully updated your poem"
      redirect to "/poems/#{@poem.id}"
    else
@@ -76,4 +77,5 @@ class PoemController < ApplicationController
      redirect "/login"
    end
  end
+ 
 end
