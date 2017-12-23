@@ -5,5 +5,5 @@ class Poem < ActiveRecord::Base
   def self.valid_params?(params)
     return !params[:poems][:title].empty? && !params[:poems][:content].empty? && !params[:poems][:date].empty?
   end
-  
+
 end

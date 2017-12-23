@@ -12,11 +12,14 @@ class CategoryController < ApplicationController
 
   post '/categories' do
     redirect?
+
     unless Category.valid_params?(params)
       flash[:error] = "Please do not leave any fields empty"
       redirect to "/categories/new"
     end
+
     @category = Category.create(name: params[:category][:name])
+
     if !params[:category][:poems] == nil
       params[:category][:poems].each do |poem_data|
         poem = Poem.find_or_create_by(poem_data)
@@ -25,7 +28,7 @@ class CategoryController < ApplicationController
       end
     end
     @category.user_id = current_user.id
-    @category.save
+    @categor.save
     redirect to "/categories/#{@category.id}"
   end
 
@@ -36,25 +39,25 @@ class CategoryController < ApplicationController
   end
 
   get '/categories/:id/edit' do
-  redirect?
+    redirect?
     @category = Category.find(params[:id])
-    if @category.user_id == current_user.id
-      erb :'/categories/edit'
-    else
-      redirect to "/categories"
+      if @category.user_id == current_user.id
+        erb :'/categories/edit'
+      else
+        redirect to "/categories"
+      end
+  end
+
+  patch '/categories/:id' do
+    redirect?
+    @category = Category.find(params[:id])
+
+    unless Category.valid_params?(params)
+      flash[:message] = "Please do not leave any fields empty"
+      redirect to "/categories/new"
     end
-  end
 
-patch '/categories/:id' do
-  redirect?
-  @category = Category.find(params[:id])
-
-  unless Category.valid_params?(params)
-    flash[:message] = "Please do not leave any fields empty"
-    redirect to "/categories/new"
-  end
-
-  if logged_in? && @category.user_id == current_user.id
+    if logged_in? && @category.user_id == current_user.id
       @category.update(name: params[:category][:name])
       if !params[:category][:poems] == nil
         params[:category][:poems].each do |poem_data|
@@ -64,9 +67,9 @@ patch '/categories/:id' do
           poem.save
         end
       end
-        @category.save
-        flash[:message] = "The category has been updated"
-        redirect to "/categories/#{@category.id}"
+      @category.save
+      flash[:message] = "The category has been updated"
+      redirect to "/categories/#{@category.id}"
     else
       redirect "/login"
     end

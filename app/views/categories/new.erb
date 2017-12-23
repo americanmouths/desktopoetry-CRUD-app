@@ -15,7 +15,7 @@
   <h4>Select a Poem to Assign to This Category</h4>
     <% if !current_user.poems.all.empty? %>
      <% current_user.poems.all.each do |poem| %>
-       <input type="checkbox" name="category[poems][][title]" value="<%= poem.title %>" <%= 'checked' if current_user.poems.include?(poem) %>>
+       <input type="checkbox" name="category[poems][][title]" value="<%= poem.title %>">
        <%=poem.title%>
      <% end %>
     <% else %>
