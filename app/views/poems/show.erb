@@ -16,7 +16,7 @@
   <p><%= @poem.date %></p>
 
 <h4>Category:</h4>
-  <% if !@poem.category == nil %>
+  <% if !@poem.category.nil? %>
     <p><a href="/categories/<%=@poem.category.id%>"><%= @poem.category.name %></p></a>
   <% else %>
     <p><%= "This poem has no category" %></p>
