@@ -27,6 +27,7 @@ class PoemController < ApplicationController
     @poem.category.user_id = current_user.id
     @poem.category.save
     @poem.save
+    binding.pry
     redirect to "/poems/#{@poem.id}"
    end
 
@@ -58,6 +59,8 @@ class PoemController < ApplicationController
    if logged_in? && @poem.user_id == current_user.id
      @poem.update(title: params[:poems][:title], date: params[:poems][:date], content: params[:poems][:content])
      @poem.category = Category.find_or_create_by(name: params[:poems][:category])
+     @poem.category.user_id = current_user.id
+     @poem.category.save
      @poem.save
 
      flash[:message] = "Succesfully updated your poem"
@@ -77,5 +80,5 @@ class PoemController < ApplicationController
      redirect "/login"
    end
  end
- 
+
 end
