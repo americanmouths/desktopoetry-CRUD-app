@@ -1,25 +1,40 @@
+<center>
 <div id='flash' class='notice'>
   <% if flash.has?(:message) %>
    <%= flash[:message] %>
   <% end %>
 </div>
-<center><h1><%= @poem.title %></h1>
+<h1><%= @poem.title %></h1>
+
 <% new_poem = @poem.content.split("\r\n") %>
   <% new_poem.each do |poem| %>
     <p><%= poem %></p>
   <% end %>
 <br>
+
 <h4>Written: </h4>
-<p><%= @poem.date %></p>
+  <p><%= @poem.date %></p>
 
 <h4>Category:</h4>
-<p><a href="/categories/<%=@poem.category.id%>"><%= @poem.category.name %></p></a>
+  <% if !@poem.category == nil %>
+    <p><a href="/categories/<%=@poem.category.id%>"><%= @poem.category.name %></p></a>
+  <% else %>
+    <p><%= "This poem has no category" %></p>
+  <% end %>
 <br><br>
+
 <a href="/poems/<%=@poem.id%>/edit">Edit This Poem</a><br>
-<a href="/categories/<%=@poem.category.id%>/edit">Edit This Category</a><br>
+
+<% if !@poem.category == nil %>
+  <a href="/categories/<%=@poem.category.id%>/edit">Edit This Category</a><br>
+<% else %>
+  <a href="/categories/new">Create A New Category</a><br>
+<% end %>
+
 <a href="/poems/new">Create A New Poem</a><br>
 <a href="/logout">Log Out</a>
 <br><br>
+
 <form method="post" action="/poems/<%= @poem.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Poem">
