@@ -12,13 +12,10 @@ h1 #main_title {
   text-align: center;
 }
 
-p.poem {
-  color: black;
-}
-
 p {
   color: #533535;
-  font-size: 1.25em;
+  font-size: 1.05em;
+  line-height: 0.1;
 }
 
 h2 {
@@ -66,6 +63,7 @@ ul {
 }
 
 #flash {
+  text-align: center;
   background-color: #2C2323;
   color: white;
 }
