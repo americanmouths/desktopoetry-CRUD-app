@@ -27,7 +27,7 @@ class PoemController < ApplicationController
     @poem.category.user_id = current_user.id
     @poem.category.save
     @poem.save
-    
+
     redirect to "/poems/#{@poem.id}"
    end
 
@@ -47,7 +47,7 @@ class PoemController < ApplicationController
      end
   end
 
- patch '/poems/:id' do
+  patch '/poems/:id' do
    redirect?
    @poem = Poem.find(params[:id])
 

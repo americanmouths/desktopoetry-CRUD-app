@@ -1,12 +1,12 @@
 class UserController < ApplicationController
 
   get '/signup' do
-  if !logged_in?
-    erb :'users/signup'
-  else
-    redirect to "/users/:slug"
+    if !logged_in?
+      erb :'users/signup'
+    else
+      redirect to "/users/:slug"
+    end
   end
-end
 
   get '/users/:slug' do
     redirect?
@@ -46,13 +46,13 @@ end
   end
 
   get '/logout' do
-   if logged_in?
-     session.destroy
-     flash[:message] = "You have been successfully logged out"
-     erb :"/index"
-   else
-     redirect to "/login"
-   end
- end
+    if logged_in?
+      session.destroy
+      flash[:message] = "You have been successfully logged out"
+      erb :"/index"
+    else
+      redirect to "/login"
+    end
+  end
 
 end
