@@ -8,8 +8,6 @@ class PoemController < ApplicationController
 
   get '/poems/new' do
     redirect?
-    @poems = Poem.all
-    @categories = Category.all
     erb :'poems/new'
   end
 
