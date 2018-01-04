@@ -19,16 +19,16 @@
   <input type="hidden" name="_method" value="patch">
 
   <h4>New Title:</h4>
-  <input type="text" name="poems[title]">
+  <input type="text" name="poems[title]" value="<%= @poem.title %>">
 
   <h4>New Content:</h4>
-  <textarea name="poems[content]" style="width:250px;height:150px;"></textarea>
+  <textarea name="poems[content]" style="width:250px;height:150px;"><%= @poem.content %></textarea>
 
   <h4>New Date:</h4>
-  <input type="text" name="poems[date]">
+  <input type="text" name="poems[date]" value="<%= @poem.date %>">
 
   <h4>New Category:</h4>
-  <input type="text" name="poems[category]">
+  <input type="text" name="poems[category]" value="<%= @poem.category.name %>">
   <br><br>
 
   <br><br>
