@@ -19,9 +19,8 @@ class PoemController < ApplicationController
       redirect to "/poems/new"
     end
 
-    @poem = Poem.create(title: params[:poems][:title], date: params[:poems][:date], content: params[:poems][:content])
+    @poem = Poem.create(title: params[:poems][:title], date: params[:poems][:date], content: params[:poems][:content], user_id: params[:poems][:user_id])
     @poem.category = Category.find_or_create_by(name: params[:poems][:category])
-    @poem.user_id = current_user.id
     @poem.category.user_id = current_user.id
     @poem.category.save
     @poem.save
