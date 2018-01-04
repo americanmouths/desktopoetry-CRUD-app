@@ -8,6 +8,8 @@
 <h1>Submit A New Poem</h1>
 
 <form method="POST" action="/poems">
+  <input name="poems[user_id]" type="hidden" value="<%= current_user.id %>">
+
   <h4>Title</h4>
   <input type="text" name="poems[title]">
 
