@@ -11,9 +11,12 @@ class UserController < ApplicationController
   get '/users/:slug' do
     redirect?
     @user = User.find_by_slug(params[:slug])
-    @user = current_user
+  if @user == current_user
     erb :'/users/show'
+  else
+    redirect to "/"
   end
+end
 
   post '/signup' do
     if !User.valid_params?(params) || !User.valid_username?(username: params[:username])
@@ -28,7 +31,8 @@ class UserController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect to "/users/:slug"
+      @user = current_user
+      redirect to "/users/#{@user.slug}"
     else
       erb :"/users/login"
     end
