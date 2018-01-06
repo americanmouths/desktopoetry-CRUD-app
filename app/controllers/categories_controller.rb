@@ -25,10 +25,12 @@ class CategoryController < ApplicationController
         poem = Poem.find_or_create_by(poem_data)
         poem.category = @category
         poem.save
+        poem.category.save
+        @category.poems << poem
       end
     end
     @category.user_id = current_user.id
-    @categor.save
+    @category.save
     redirect to "/categories/#{@category.id}"
   end
 
@@ -59,12 +61,15 @@ class CategoryController < ApplicationController
 
     if logged_in? && @category.user_id == current_user.id
       @category.update(name: params[:category][:name])
+
       if !params[:category][:poems] == nil
         params[:category][:poems].each do |poem_data|
           poem = Poem.find_or_create_by(poem_data)
           poem.category = @category
           poem.user_id = current_user.id
           poem.save
+          poem.category.save
+          @category.poems << poem
         end
       end
       @category.save
