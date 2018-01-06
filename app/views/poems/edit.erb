@@ -25,7 +25,7 @@
   <textarea name="poems[content]" style="width:250px;height:150px;"><%= @poem.content %></textarea>
 
   <h4>New Date:</h4>
-  <input type="text" name="poems[date]" value="<%= @poem.date %>">
+  <input type="date" name="poems[date]" value="<%= @poem.date %>" max="<%= Date.today.to_s %>">
 
   <h4>New Category:</h4>
   <input type="text" name="poems[category]" value="<%= @poem.category.name %>">
