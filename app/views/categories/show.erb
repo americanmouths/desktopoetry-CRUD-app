@@ -8,7 +8,7 @@
 
 <h2>Poems in This Category</h2>
   <% if !@poems.empty? %>
-      <% @poems.each do |poem| %>
+      <% @poems.each.with_index do |poem| %>
           <% if poem.user_id == current_user.id %>
             <p><a href="/poems/<%= poem.id %>"><%= poem.title %></a></p>
           <% end %>
@@ -20,7 +20,7 @@
 
 <a href="/categories/<%= @category.id %>/edit">Edit This Category</a><br>
 <a class="new" href="/categories/new">Create A New Category</a><br>
-<a href="/users/:slug">Home</a>
+<a href="/categories">Home</a>
 <br><br>
 
 <form method="post" action="/categories/<%=@category.id%>/delete">
