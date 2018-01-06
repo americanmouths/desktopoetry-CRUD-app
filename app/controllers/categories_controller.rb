@@ -1,7 +1,7 @@
 class CategoryController < ApplicationController
+
   get '/categories' do
     redirect?
-    @user = current_user
     erb :"/categories/index"
   end
 
@@ -20,7 +20,7 @@ class CategoryController < ApplicationController
 
     @category = Category.create(name: params[:category][:name])
 
-    if !params[:category][:poems] == nil
+    if !params[:category][:poems].nil?
       params[:category][:poems].each do |poem_data|
         poem = Poem.find_or_create_by(poem_data)
         poem.category = @category
@@ -56,17 +56,17 @@ class CategoryController < ApplicationController
 
     unless Category.valid_params?(params)
       flash[:message] = "Please do not leave any fields empty"
-      redirect to "/categories/new"
+      redirect to "/categories/#{@category.id}/edit"
     end
 
     if logged_in? && @category.user_id == current_user.id
       @category.update(name: params[:category][:name])
 
-      if !params[:category][:poems] == nil
+      if !params[:category][:poems].nil?
         params[:category][:poems].each do |poem_data|
           poem = Poem.find_or_create_by(poem_data)
           poem.category = @category
-          poem.user_id = current_user.id
+          poem.user_id = @@current_user.id
           poem.save
           poem.category.save
           @category.poems << poem
