@@ -14,7 +14,7 @@
   <input type="text" name="poems[title]">
 
   <h4>Date</h4>
-  <input type="text" name="poems[date]">
+  <input type="date" name="poems[date]" max="<%= Date.today.to_s %>">
 
   <h4>Content</h4>
   <textarea name="poems[content]" style="width:250px;height:150px;"></textarea>
