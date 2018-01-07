@@ -8,8 +8,12 @@ class User < ActiveRecord::Base
    return !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
  end
 
-  def self.valid_username?(params)
-    return params[:username] != User.find_by(username: params[:username])
+  def self.taken_username?(params)
+    if params[:username] == User.find_by(username: params[:username])
+      return true
+    else
+      false
+    end
   end
 
   def slug
