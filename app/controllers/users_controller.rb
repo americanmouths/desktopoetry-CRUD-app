@@ -14,15 +14,14 @@ class UserController < ApplicationController
   if @user == current_user
     erb :'/users/show'
   else
-    session.clear
-    redirect to "/"
+    redirect to "/testing"
   end
 end
 
   post '/signup' do
-    if !User.valid_params?(params) || !User.taken_username?(username: params[:username])
+    if !User.valid_params?(params) || User.taken_username?(username: params[:username])
       flash[:message] = "That username is already taken, please select another. Do not leave any fields empty."
-      redirect '/signup'
+      redirect '/'
     else
       @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
       session[:user_id] = @user.id
