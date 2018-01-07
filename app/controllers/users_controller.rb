@@ -14,14 +14,15 @@ class UserController < ApplicationController
   if @user == current_user
     erb :'/users/show'
   else
+    session.clear
     redirect to "/"
   end
 end
 
   post '/signup' do
-    if !User.valid_params?(params) || !User.valid_username?(username: params[:username])
-      flash[:message] = "Please enter a valid username and password"
-      erb :'users/signup'
+    if !User.valid_params?(params) || !User.taken_username?(username: params[:username])
+      flash[:message] = "That username is already taken, please select another. Do not leave any fields empty."
+      redirect '/signup'
     else
       @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
       session[:user_id] = @user.id
@@ -51,10 +52,11 @@ end
 
   get '/logout' do
     if logged_in?
-      session.destroy
+      session.clear
       flash[:message] = "You have been successfully logged out"
       erb :"/index"
     else
+      session.clear
       redirect to "/login"
     end
   end
