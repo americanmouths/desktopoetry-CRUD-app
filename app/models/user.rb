@@ -9,11 +9,7 @@ class User < ActiveRecord::Base
  end
 
   def self.taken_username?(params)
-    if params[:username] == User.find_by(username: params[:username])
-      return true
-    else
-      false
-    end
+    User.find_by(username: params[:username]) != nil
   end
 
   def slug
