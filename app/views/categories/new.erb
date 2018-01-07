@@ -12,7 +12,7 @@
   <input type="text" name="category[name]">
   <br>
 
-  <h4>Select a Poem to Assign to This Category</h4>
+  <h4>Select Poems to Assign to This Category</h4>
     <% if !current_user.poems.all.empty? %>
      <% current_user.poems.all.each do |poem| %>
        <input type="checkbox" name="category[poems][][id]" value="<%= poem.id %>">
