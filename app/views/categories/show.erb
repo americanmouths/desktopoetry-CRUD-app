@@ -20,7 +20,7 @@
 
 <a href="/categories/<%= @category.id %>/edit">Edit This Category</a><br>
 <a class="new" href="/categories/new">Create A New Category</a><br>
-<a href="/categories">Home</a>
+<a href="/users/<%= current_user.username %>">Home</a><br>
 <br><br>
 
 <form method="post" action="/categories/<%=@category.id%>/delete">
