@@ -66,7 +66,7 @@ class CategoryController < ApplicationController
         params[:category][:poems].each do |poem_data|
           poem = Poem.find_or_create_by(poem_data)
           poem.category = @category
-          poem.user_id = @@current_user.id
+          poem.user_id = current_user.id
           poem.save
           poem.category.save
           @category.poems << poem
