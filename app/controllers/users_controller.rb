@@ -14,7 +14,7 @@ class UserController < ApplicationController
   if @user == current_user
     erb :'/users/show'
   else
-    redirect to "/wrong_user"
+    redirect to "/users/#{current_user.slug}"
   end
 end
 
@@ -57,14 +57,6 @@ end
     else
       session.clear
       redirect to "/login"
-    end
-  end
-
-  get '/wrong_user' do
-    if logged_in?
-      session.clear
-      flash[:message] = "You must be logged in as that user to do that"
-      erb :"/index"
     end
   end
 
