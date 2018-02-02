@@ -26,9 +26,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    if current_user 
+    if current_user && logged_in?
       @user = current_user
-    elsif current_user && logged_in?
       redirect to "/users/#{@user.slug}"
     else
       erb :'index'
