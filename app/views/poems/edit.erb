@@ -7,13 +7,11 @@
 
 <h1>Edit "<%= @poem.title %>"</h1>
 
-<div id='poem'>
 <% new_poem = @poem.content.split("\r\n") %>
   <% new_poem.each do |poem| %>
     <%= poem %><br>
   <% end %>
 <br>
-</div>
 
 <form action="/poems/<%= @poem.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
