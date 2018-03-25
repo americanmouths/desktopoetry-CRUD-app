@@ -1,5 +1,5 @@
 # Desktopoetry
-A CRUD web application for writing, reading, editing and deleting poetry.
+A Sinatra web application designed to provide ability to create, read, update & destroy all things poetry.
 
 # Usage
 To use this app:
