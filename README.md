@@ -5,7 +5,7 @@ A Sinatra web application designed to provide ability to create, read, update & 
 <p>Use it live at: https://desktopoetry-sinatra.herokuapp.com/</p>
 
 # Contributors Guide
-<a href="desktopoetry-CRUD-app/CONTRIBUTING.md">Contributors Guide</a>
+<a href="https://github.com/americanmouths/desktopoetry-CRUD-app/blob/master/CONTRIBUTING.md">Contributors Guide</a>
 
 # License
-<a href="desktopoetry-CRUD-app/LICENSE">License Information</a>
+<a href="https://github.com/americanmouths/desktopoetry-CRUD-app/blob/master/LICENSE">License Information</a>
